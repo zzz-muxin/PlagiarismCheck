@@ -17,7 +17,7 @@ public class CosTF {
 
     //计算两个文本的余弦相似度
     public double getCosSimilarity(Map<String,Integer> text_1, Map<String,Integer> text_2){
-        double innerProduct = 0.0;//用于存储两个向量的内积，初值0
+        double innerProduct = 0.0;//用于存储两个向量的点积，初值0
         for (Map.Entry<String,Integer> entry : text_1.entrySet()){
             int freq_1 = entry.getValue();
             int freq_2 = text_2.getOrDefault(entry.getKey(), 0);

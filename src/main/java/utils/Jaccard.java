@@ -3,6 +3,7 @@ package utils;
 import java.util.Map;
 import java.util.Set;
 
+//jaccard相似系数计算
 public class Jaccard {
     public double getJaccardSimilarity(Map<String,Integer> text_1, Map<String,Integer> text_2){
         //计算词频映射中交集数量

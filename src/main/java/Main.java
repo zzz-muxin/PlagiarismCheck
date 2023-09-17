@@ -5,6 +5,7 @@ import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) {
+
         //检查参数个数
         if (args.length != 3){
             System.out.println("请输入正确的参数和文件路径!\n");
@@ -12,7 +13,7 @@ public class Main {
         }
 
         //判断参数文件是否以.txt结尾
-        for(String index:args){
+        for(String index : args){
             if(!index.endsWith(".txt")){
                 System.out.println("参数文件需为.txt文件!\n");
                 return;
