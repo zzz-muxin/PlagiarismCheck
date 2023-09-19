@@ -77,7 +77,7 @@
 
 1. **TF（term frequency 词频）**
 
-   <img src="https://md-wendang.oss-cn-shenzhen.aliyuncs.com/image-20230917162416665.png" alt="image-20230917162416665" style="zoom:25%;" />
+   <img src="https://cdn.jsdelivr.net/gh/zzz-muxin/my-img@main/img/image-20230917162416665.png" alt="image-20230917162416665" style="zoom:25%;" />
 
    如果某个单词在一篇文章中出现的频率TF高，那么它就越“紧扣主题”。如果该词在其他文章中很少出现，则认为此词或者短语具有很好的类别区分能力，适合用来分类。
 
@@ -93,17 +93,17 @@
 
    余弦值越接近1，就表明夹角越接近0度，也就是两个向量越相似，这就叫"余弦相似性"。
 
-   <img src="https://md-wendang.oss-cn-shenzhen.aliyuncs.com/image-20230917164708486.png" alt="image-20230917164708486" style="zoom:80%;" />
+   <img src="https://cdn.jsdelivr.net/gh/zzz-muxin/my-img@main/img/image-20230917164708486.png" alt="image-20230917164708486" style="zoom:80%;" />
 
    上图两个向量a,b的夹角很小可以说a向量和b向量有很高的的相似性，极端情况下，a和b向量完全重合，**cos0 = 1**。如下图：
 
-   <img src="https://md-wendang.oss-cn-shenzhen.aliyuncs.com/image-20230917164726098.png" alt="image-20230917164726098" style="zoom:80%;" />
+   <img src="https://cdn.jsdelivr.net/gh/zzz-muxin/my-img@main/img/image-20230917164726098.png" alt="image-20230917164726098" style="zoom:80%;" />
 
    两个向量重合，可以认为文本100%相似，如果a和b向量夹角较大，或者反方向，就可以说明两个文本相似度不大。假设a向量是（x1, y1），b向量是(x2, y2)，那么可以将**余弦定理**改写成下面的形式：
 
-   <img src="https://md-wendang.oss-cn-shenzhen.aliyuncs.com/image-20230917165213183.png" alt="image-20230917165213183" style="zoom:50%;" />
+   <img src="https://cdn.jsdelivr.net/gh/zzz-muxin/my-img@main/img/image-20230917165213183.png" alt="image-20230917165213183" style="zoom:50%;" />
 
-   <img src="https://md-wendang.oss-cn-shenzhen.aliyuncs.com/image-20230917165346572.png" alt="image-20230917165346572" style="zoom:67%;" />
+   <img src="https://cdn.jsdelivr.net/gh/zzz-muxin/my-img@main/img/image-20230917165346572.png" alt="image-20230917165346572" style="zoom:67%;" />
 
    **上述二维向量可以扩展到n维向量，将两篇文本提炼出来的词频TF集看作两个n维向量**，我们就可以通过公式计算出两个文本的余弦相似度
 
@@ -111,9 +111,9 @@
 
    给定两个集合A,B，Jaccard 系数定义为A与B交集的大小与A与B并集的大小的比值，定义如下：
 
-   <img src="https://md-wendang.oss-cn-shenzhen.aliyuncs.com/image-20230917170844920.png" alt="image-20230917170844920" style="zoom:33%;" />
+   <img src="https://cdn.jsdelivr.net/gh/zzz-muxin/my-img@main/img/image-20230917170844920.png" alt="image-20230917170844920" style="zoom:33%;" />
 
-   <img src="https://md-wendang.oss-cn-shenzhen.aliyuncs.com/image-20230917170307280.png" alt="image-20230917170307280" style="zoom:80%;" />
+   <img src="https://cdn.jsdelivr.net/gh/zzz-muxin/my-img@main/img/image-20230917170307280.png" alt="image-20230917170307280" style="zoom:67%;" />
 
    jaccard相似系数非常简单，就是把两个文本看成两个集合，相似部分就是交集，用交集除并集就可以得到结果，我们可以**直接用提炼的词频TF集合求解**
 
@@ -142,7 +142,7 @@
 
 ## 5.1项目结构
 
-<img src="https://md-wendang.oss-cn-shenzhen.aliyuncs.com/image-20230917172903691.png" alt="image-20230917172903691" style="zoom:80%;" />
+![image-20230917172903691](https://cdn.jsdelivr.net/gh/zzz-muxin/my-img@main/img/image-20230917172903691.png)
 
 ## 5.2模块设计
 
@@ -188,11 +188,11 @@
 
 使用**Jprofiler 11.1.4**测试打包后的jar软件，Override性能分析图如下，jar软件进行一次比对查重不超过2秒耗时
 
-![image-20230917191947473](https://md-wendang.oss-cn-shenzhen.aliyuncs.com/image-20230917191947473.png)
+![image-20230917191947473](https://cdn.jsdelivr.net/gh/zzz-muxin/my-img@main/img/image-20230917191947473.png)
 
 Memory占用图如下，其中Double类和HashMap类占用最多，Double类主要来自于余弦相似度的计算，HashMap类主要来自于使用分词器分词需要用到Map进行词频映射，可从这两个方面进行改进
 
-![image-20230917192451232](https://md-wendang.oss-cn-shenzhen.aliyuncs.com/image-20230917192451232.png)
+![image-20230917192451232](https://cdn.jsdelivr.net/gh/zzz-muxin/my-img@main/img/image-20230917192451232.png)
 
 # 七、计算模块部分单元测试展示
 
@@ -237,11 +237,11 @@ public class CosAndJaccardTest {
 
 测试类覆盖率如下，项目代码较简单，基本能实现一个测试类就能全覆盖
 
-![image-20230917204326682](https://md-wendang.oss-cn-shenzhen.aliyuncs.com/image-20230917204326682.png)
+![image-20230917204326682](https://cdn.jsdelivr.net/gh/zzz-muxin/my-img@main/img/image-20230917204326682.png)
 
 该测试所使用的.txt文件如下，比对了两个文件的相似度，分别计算余弦相似度和jaccard相似度，并把结果写入out.txt文件中
 
-![image-20230917204609689](https://md-wendang.oss-cn-shenzhen.aliyuncs.com/image-20230917204609689.png)
+![image-20230917204609689](https://cdn.jsdelivr.net/gh/zzz-muxin/my-img@main/img/image-20230917204609689.png)
 
 # 八、计算模块部分异常处理说明
 
