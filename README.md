@@ -247,7 +247,7 @@ public class CosAndJaccardTest {
 
 1. 命令行参数个数错误
 
-   ```java
+   ```
    		//检查参数个数
            if (args.length != 3){
                System.out.println("请输入正确的参数和文件路径!\n");
@@ -257,7 +257,7 @@ public class CosAndJaccardTest {
 
 2. 输入文件路径的合法性检查
 
-   ```java
+   ```
            //判断参数文件是否以.txt结尾
            for(String index : args){
                if(!index.endsWith(".txt")){
@@ -269,7 +269,7 @@ public class CosAndJaccardTest {
 
 3. 文件读取打开失败异常
 
-   ```java
+   ```
            //初始化论文查重的接口
            PaperCheck check = new PaperCheckImpl();
            //调用接口
