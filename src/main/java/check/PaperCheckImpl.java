@@ -16,6 +16,7 @@ public class PaperCheckImpl implements PaperCheck {
     //jaccard相似度权重
     private final static double JACCARD_WEIGHT = 0.5;
 
+
     @Override
     public double paperCheck(String origFilePath, String targetFilePath, String outputFilePath) throws IOException {
         //初始化分词器
@@ -34,19 +35,21 @@ public class PaperCheckImpl implements PaperCheck {
         Map<String,Integer> targetText = textSegmentation.cutWord(targetFile);
 
         //得到基于TF的余弦相似度
-        double cosSimilarity = cosTF.getCosSimilarity(origText, targetText);
+        double cosSimilarity = (cosTF.getCosSimilarity(origText, targetText)) * 100;
 
         //得到jaccard相似度
-        double jaccardSimilarity = jaccard.getJaccardSimilarity(origText,targetText);
+        double jaccardSimilarity = (jaccard.getJaccardSimilarity(origText,targetText)) * 100;
 
         //计算最终总体查重率
-        double finalResult = cosSimilarity * COS_WEIGHT + jaccardSimilarity * JACCARD_WEIGHT;
+        double finalResult = (cosSimilarity * COS_WEIGHT + jaccardSimilarity * JACCARD_WEIGHT);
 
         //将比对结果进行格式化并输出
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         Date currentDate = new Date();
         String formattedDate = dateFormat.format(currentDate);
-        String result = String.format(formattedDate + " %s 文件总体查重率:%.2f%%\n",targetFilePath,finalResult * 100);
+        String result = String.format(
+                formattedDate + " %s 余弦相似度:%.2f%%" + " jaccard相似度:%.2f%%"+ " 文件总体查重率:%.2f%%\n",
+                targetFilePath,cosSimilarity,jaccardSimilarity,finalResult);
 
         //将结果输出到文件中
         FileIO.writeFile(outputFilePath,result);

@@ -25,7 +25,7 @@ public class Main {
         //调用接口
         try {
             double result = check.paperCheck(args[0], args[1], args[2]);
-            System.out.printf("%s 文件总体查重率：%.2f%% \n",args[1],result * 100);
+            System.out.printf("%s 文件总体查重率：%.2f%% \n",args[1],result);
         } catch (IOException e){
             System.out.println("error:文件打开失败!\n");
             System.out.println(e.getMessage());
